@@ -1,0 +1,278 @@
+local DiscordLib = loadstring(game:HttpGet"https://raw.githubusercontent.com/dawid-scripts/UI-Libs/main/discord%20lib.txt")()
+
+local Win1 = DiscordLib:Window("NoobDepTrai Hub") -- Title/Name
+
+local Tab1 = Win1:Server("Main", "") -- Server/Tab
+
+local Chann1 = Tab1:Channel("*Main*") -- Channel 0_0
+
+Chann1:Button("Fly Gui V3", function()
+loadstring(game:HttpGet("https://scriptblox.com/raw/Universal-Script-Fly-v3-7412"))()
+DiscordLib:Notification("Notification", "Thank For Use", "Okay!") -- The Scirpt The Button Executes
+end)
+
+Chann1:Button("Infinite Yeild", function()
+loadstring(game:HttpGet("https://scriptblox.com/raw/Universal-Script-Infinite-Yeild-8192"))()
+DiscordLib:Notification("Notification", "Thank For Use", "Okay!") -- The Scirpt The Button Executes
+end)
+
+Chann1:Button("Invisible Gui", function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/GhostPlayer352/Test4/main/Invisible%20Gui'))()
+DiscordLib:Notification("Notification", "Thank For Use", "Okay!") -- The Scirpt The Button Executes
+end)
+
+Chann1:Button("Shader Gui", function()
+loadstring(game:HttpGet(('https://pastefy.app/xXkUxA0P/raw'), true))()
+DiscordLib:Notification("Notification", "Thank For Use", "Okay!") -- The Scirpt The Button Executes
+end)
+
+Chann1:Button("Drop Gui", function()
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local DropGUI = Instance.new("ScreenGui")
+local main = Instance.new("Frame")
+local DropTool = Instance.new("TextButton")
+local Equip = Instance.new("TextButton")
+local Version = Instance.new("TextButton")
+local Cred = Instance.new("TextButton")
+
+--Properties:
+
+DropGUI.Name = "Drop GUI"
+DropGUI.Parent = game.CoreGui
+DropGUI.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+main.Name = "main"
+main.Parent = DropGUI
+main.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+main.Position = UDim2.new(0.0809101239, 0, 0.203790441, 0)
+main.Size = UDim2.new(0, 150, 0, 128)
+main.Active = true
+main.Draggable = true
+
+DropTool.Name = "Drop Tool"
+DropTool.Parent = main
+DropTool.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+DropTool.Position = UDim2.new(0.0597826242, 0, 0.119906127, 0)
+DropTool.Size = UDim2.new(0, 55, 0, 50)
+DropTool.Font = Enum.Font.SourceSans
+DropTool.Text = "Drop"
+DropTool.TextColor3 = Color3.fromRGB(0, 0, 0)
+DropTool.TextScaled = true
+DropTool.TextSize = 14.000
+DropTool.TextWrapped = true
+DropTool.MouseButton1Down:Connect(function()
+	game.Players.LocalPlayer.Character:FindFirstChildOfClass("Tool").Parent = game.Workspace
+end)
+
+Equip.Name = "Equip"
+Equip.Parent = main
+Equip.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+Equip.Position = UDim2.new(0.55251956, 0, 0.119906083, 0)
+Equip.Size = UDim2.new(0, 58, 0, 50)
+Equip.Font = Enum.Font.SourceSans
+Equip.Text = "Equip"
+Equip.TextColor3 = Color3.fromRGB(0, 0, 0)
+Equip.TextScaled = true
+Equip.TextSize = 14.000
+Equip.TextWrapped = true
+Equip.MouseButton1Down:Connect(function()
+	game.Players.LocalPlayer.Backpack:FindFirstChildOfClass("Tool").Parent = game.Players.LocalPlayer.Character
+end)
+
+Version.Name = "Version"
+Version.Parent = main
+Version.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+Version.Position = UDim2.new(0, 0, 0.999885917, 0)
+Version.Size = UDim2.new(0, 151, 0, 34)
+Version.Font = Enum.Font.SourceSans
+Version.Text = "Version 1"
+Version.TextColor3 = Color3.fromRGB(0, 0, 0)
+Version.TextScaled = true
+Version.TextSize = 14.000
+Version.TextWrapped = true
+
+Cred.Name = "Cred"
+Cred.Parent = main
+Cred.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+Cred.Position = UDim2.new(0, 0, -0.266169071, 0)
+Cred.Size = UDim2.new(0, 151, 0, 34)
+Cred.Font = Enum.Font.SourceSans
+Cred.Text = "Script made by WarriorRoberr"
+Cred.TextColor3 = Color3.fromRGB(0, 0, 0)
+Cred.TextSize = 14.000
+Cred.TextWrapped = true
+DiscordLib:Notification("Notification", "Thank For Use", "Okay!") -- The Scirpt The Button Executes
+end)
+
+Chann1:Button("Aimbot Gui-VPN", function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/RYZZCHIPSX/ryzzchips/main/beamed%20ware%20script"))();
+DiscordLib:Notification("Notification", "Thank For Use", "Okay!") -- The Scirpt The Button Executes
+end)
+
+Chann1:Button("Q Tool", function()
+getgenv().keytoclick = "Q"
+tool = Instance.new("Tool")
+tool.RequiresHandle = false
+tool.Name = keytoclick
+tool.Activated:connect(function()
+    local vim = game:service("VirtualInputManager")
+vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+tool.Parent = game.Players.LocalPlayer.Backpack
+wait(0.2)
+local AkaliNotif = loadstring(game:HttpGet("https://raw.githubusercontent.com/Kinlei/Dynissimo/main/Scripts/AkaliNotif.lua"))();
+local Notify = AkaliNotif.Notify;
+Notify({
+Description = "Thank for use :D";
+Title = "Thank You!";
+Duration = 5;
+});
+DiscordLib:Notification("Notification", "Thank For Use", "Okay!") -- The Script The Button To Executes
+end)
+
+Chann1:Button("Hubby Script Auto Piano", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/HubbyScripts/Auto-Piano-Hub-V6/main/Auto%20Piano%20Hub%20V6"))()
+DiscordLib:Notification("Notification", "Clicked", "Okay!") -- The Scirpt The Button Executes
+end)
+
+Chann1:Button("Pro Hub", function() loadstring(game:HttpGet(("https://cdn.discordapp.com/attachments/922823751127683082/994188489358835752/Protected.lua"), true))()
+DiscordLib:Notification("Notification", "Clicked", "Okay!") -- The Scirpt The Button Executes
+end)
+
+Chann1:Button("Auto Report Script ( need Keyboard Script)", function() loadstring(game:HttpGet('https://raw.githubusercontent.com/joeengo/Future/main/loadstring.lua', true))()loadstring(game:HttpGet('https://raw.githubusercontent.com/joeengo/Future/main/loadstring.lua', true))()
+DiscordLib:Notification("Notification", "Clicked", "Okay!") -- The Scirpt The Button Executes
+end)
+
+Chann1:Button("Fly Gui", function() loadstring(game:HttpGet('https://pastebin.com/Fejmtv6N'))()
+DiscordLib:Notification("Notification", "Clicked", "Okay!") -- The Scirpt The Button Executes
+end)
+
+Chann1:Button("Energizer", function() loadstring(game:HttpGet("https://pastebin.com/raw/RmD3qNp7", true))()
+DiscordLib:Notification("Notification", "Clicked", "Okay!") -- The Scirpt The Button Executes
+end)
+
+Chann1:Button("Legon X Hub", function() loadstring(game:HttpGet(('https://pastebin.com/raw/Lmaz8vF7'),true))();
+DiscordLib:Notification("Notification", "Clicked", "Okay!") -- The Scirpt The Button Executes
+end)
+
+Chann1:Label("Creds To Respectfull Owner.") -- A Label (Ofc)
+
+local Tab2 = Win1:Server("Fe Script Community", "") -- Server/Tab
+
+local Chann2 = Tab2:Channel("Fe Script 1") -- Channel 0_0
+
+Chann2:Button("Fe Long Legs R15 Only", function() loadstring(game:HttpGet('https://raw.githubusercontent.com/DigitalityScripts/roblox-scripts/main/Leg%20Resize'))()
+--r15
+DiscordLib:Notification("Notification", "Clicked", "Okay!") -- The Scirpt The Button Executes
+end)
+
+Chann2:Button("Fe Runner R15/R6", function() loadstring("\108\111\97\100\115\116\114\105\110\103\40\103\97\109\101\58\72\116\116\112\71\101\116\40\40\39\104\116\116\112\115\58\47\47\112\97\115\116\101\102\121\46\103\97\47\107\65\73\71\111\97\108\117\47\114\97\119\39\41\44\116\114\117\101\41\41\40\41\10")()
+DiscordLib:Notification("Notification", "Clicked", "Okay!") -- The Scirpt The Button Executes
+end)
+
+Chann2:Button("Fe Long Arm R6 Only", function() loadstring("\108\111\97\100\115\116\114\105\110\103\40\103\97\109\101\58\72\116\116\112\71\101\116\40\40\39\104\116\116\112\115\58\47\47\112\97\115\116\101\102\121\46\103\97\47\83\110\67\75\122\80\101\104\47\114\97\119\39\41\44\116\114\117\101\41\41\40\41\10")()
+DiscordLib:Notification("Notification", "Clicked", "Okay!") -- The Scirpt The Button Executes
+end)
+
+Chann2:Button("Coming Soon", function() 
+DiscordLib:Notification("Notification", "Clicked", "Okay!") -- The Scirpt The Button Executes
+end)
+
+Chann2:Button("Coming Soon", function() 
+DiscordLib:Notification("Notification", "Clicked", "Okay!") -- The Scirpt The Button Executes
+end)
+
+Chann2:Button("Coming soon", function() 
+DiscordLib:Notification("Notification", "Clicked", "Okay!") -- The Scirpt The Button Executes
+end)
+
+Chann2:Button("Coming Soon", function() 
+DiscordLib:Notification("Notification", "Clicked", "Okay!") -- The Scirpt The Button Executes
+end)
+
+Chann2:Button("Coming Soon", function() 
+DiscordLib:Notification("Notification", "Clicked", "Okay!") -- The Scirpt The Button Executes
+end)
+
+local Chann1 = Tab1:Channel("Natural Disaster Gui") -- Channel 0_0
+
+Chann1:Button("Natural Disaster Survival", function() loadstring(game:HttpGet('https://pastebin.com/raw/FktJaRpR'))()
+DiscordLib:Notification("Notification", "Clicked", "Okay!") -- The Scirpt The Button Executes
+end)
+
+Chann1:Button("Natural Disaster 2", function() loadstring(game:HttpGet('https://raw.githubusercontent.com/9NLK7/93qjoadnlaknwldk/main/main'))()
+--Made By 1kWoof#0143
+DiscordLib:Notification("Notification", "Clicked", "Okay!") -- The Scirpt The Button Executes
+end)
+
+Chann1:Button("Natural Disaster 3", function() loadstring(game:HttpGet(('https://raw.githubusercontent.com/MrWitzbold/Natural-disaster-survival-GUI/main/main.lua'),true))()
+DiscordLib:Notification("Notification", "Clicked", "Okay!") -- The Scirpt The Button Executes
+end)
+
+Chann1:Button("Natural Disaster 4", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/2dgeneralspam1/scripts-and-stuff/master/scripts/LoadstringUjHI6RQpz2o8", true))()
+DiscordLib:Notification("Notification", "Clicked", "Okay!") -- The Scirpt The Button Executes
+end)
+
+local Chann1 = Tab1:Channel("Bedwars Gui") -- Channel 0_0
+
+Chann1:Button("JN HH Bedwars Gui", function() loadstring(game:HttpGet(('https://raw.githubusercontent.com/YourLocalNzi/Ye/main/Jn_V9.txt'),true))()
+DiscordLib:Notification("Notification", "Clicked", "Okay!") -- The Scirpt The Button Executes
+end)
+
+Chann1:Button("Dark Rai Bedwars Gui", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/GamingScripter/bedwars/main/Script", true))()
+DiscordLib:Notification("Notification", "Clicked", "Okay!") -- The Scirpt The Button Executes
+end)
+
+Chann1:Button("JN Bedwars Gui V10", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/YourLocalNzi/Ye/main/JNO10"))()
+DiscordLib:Notification("Notification", "Clicked", "Okay!") -- The Scirpt The Button Executes
+end)
+
+Chann1:Button("Suntai Bedwars", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/Unknownuser11736/abcd/main/suntaivsystem", true))()
+DiscordLib:Notification("Notification", "Clicked", "Okay!") -- The Scirpt The Button Executes
+end)
+
+local Chann1 = Tab1:Channel("Prison Life Gui") -- Channel 0_0
+
+Chann1:Button("Prisonware", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/Denverrz/scripts/master/PRISONWARE_v1.3.txt"))();
+DiscordLib:Notification("Notification", "Clicked", "Okay!") -- The Scirpt The Button Executes
+end)
+
+Chann1:Button("Prison Life Admin Septex", function() loadstring(game:HttpGet(('https://raw.githubusercontent.com/XTheMasterX/Scripts/Main/PrisonLife'),true))()
+DiscordLib:Notification("Notification", "Clicked", "Okay!") -- The Scirpt The Button Executes
+end)
+
+Chann1:Button("Saitama Gun ", function() loadstring(game:HttpGet('https://pastebin.com/WLhvCqhe'))()
+DiscordLib:Notification("Notification", "Clicked", "Okay!") -- The Scirpt The Button Executes
+end)
+
+local Chann1 = Tab1:Channel("Untitled Hood Gui") -- Channel 0_0
+
+Chann1:Button("Balligusapo Untitled Hood Gui", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/BalligusapoTT/BalligusapoTT/main/UntitledhoodGui"))()
+DiscordLib:Notification("Notification", "Clicked", "Okay!") -- The Scirpt The Button Executes
+end)
+
+Chann1:Button("Aim", function() loadstring(game:HttpGet('https://pastebin.com/A9F85JaB'))()
+DiscordLib:Notification("Notification", "Clicked", "Okay!") -- The Scirpt The Button Executes
+end)
+
+Chann1:Button("Untitled Hood Admin ( Need Infinite Ammo)", function() --credits to the owner!!
+loadstring(game:HttpGet('https://raw.githubusercontent.com/ver-creator/Untitled-Hood-Commands/main/.Lua'))()
+DiscordLib:Notification("Notification", "Thank for Use", "Okay!") -- The Scirpt The Button Executes
+end)
+
+Chann1:Button("Untitled Hood Free Gui", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/xlostpexz/Untitled-Hood-Free/main/Untitled%20Hood%20Free"))()
+DiscordLib:Notification("Notification", "Clicked", "Okay!") -- The Scirpt The Button Executes
+end)
+
+local Chann1 = Tab1:Channel("Blox Fruit Gui") -- Channel 0_0
+
+Chann1:Button("Resin Hub", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/sasaff94/Reskin-Hub/main/README.md"))()
+DiscordLib:Notification("Notification", "Clicked", "Okay!") -- The Scirpt The Button Executes
+end)
+
+Chann1:Button("Chiba Hub", function() loadstring(game:HttpGet('https://raw.githubusercontent.com/KindIhave/ChibaHuB/main/Chiba-BF.txt'))()  
+DiscordLib:Notification("Notification", "Clicked", "Okay!") -- The Scirpt The Button Executes
+end)
