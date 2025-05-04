@@ -224,8 +224,10 @@ ExecuteBtn.MouseButton1Click:Connect(function()
 	elseif CMD == "jumppower" or cmd == "jp" and val then
 		local hum = getHumanoid()
 		if hum then hum.JumpPower = val end
-	elseif CMD == "gravity" or cmd == "gra" and val then
-		workspace.Gravity = val
+        elseif (CMD == "teleportlocation" or CMD == "tplc") and locations[arg] then
+            hrp.CFrame = CFrame.new(locations[arg])
+        elseif (CMD == "base" or CMD == "b") and baseTeleports[arg] then
+            hrp.CFrame = CFrame.new(baseTeleports[arg])
 	elseif CMD == "reset" then
                 char:BreakJoints() 
 	end
