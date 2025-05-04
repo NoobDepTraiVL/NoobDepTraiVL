@@ -8,7 +8,7 @@ local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
 local CoreGui = game:GetService("CoreGui")
 
--- [[local itemCommands = {
+-- [[ local itemCommands = {
     ["vipsword"] = {aliases = {"vs"}, pos = Vector3.new(-94.8971, 17638.168, 9357.323)},
     ["medkit5"] = {aliases = {"mk5"}, pos = Vector3.new(-106.1854, 17638.436, 9357.467)},
     ["megavipsword"] = {aliases = {"mvs"}, pos = Vector3.new(-86.9182, 17638.006, 9224.517)},
@@ -42,7 +42,7 @@ local CoreGui = game:GetService("CoreGui")
     ["ais"] = {"vipsword", "medkit5", "megavipsword", "medkit15", "doublegravitycoil", "epickatana", "fusioncoil", "medkitunlimited", "superfreezeray"},
 } ]]
 
--- [[local specialTeleports = {
+-- [[ local specialTeleports = {
     ["knight"] = {aliases = {"kt"}, pos = Vector3.new(-84.6314, 17634.506, 9359.0166)},
     ["overseer"] = {aliases = {"os"}, pos = Vector3.new(-76.3428, 17634.506, 9226.1631)},
     ["korbloxgeneral"] = {aliases = {"kg", "kgl"}, pos = Vector3.new(-66.7205, 17634.506, 9047.8701)},
@@ -180,6 +180,7 @@ ExecuteBtn.MouseButton1Click:Connect(function()
 	local CMD = args[1]
 	local val = tonumber(args[2])
 	local function getHumanoid()
+                local char = game.Players.LocalPlayer.Character or game.Players.LocalPlayer.CharacterAdded:Wait()
 		return char:FindFirstChildOfClass("Humanoid")
 	end
 
@@ -230,10 +231,4 @@ ExecuteBtn.MouseButton1Click:Connect(function()
         end
             teleportTo(Vector3.new(0.433, 24.5, -216.7857))
 	elseif CMD == "reset" then
-                char:BreakJoints() 
-        elseif CMD == "heal" or CMD == "h" then
-            hrp.CFrame = CFrame.new(healPos)
-            task.wait(0.01)
-            hrp.CFrame = original
-	end
-end)
+            char:BreakJoints()
