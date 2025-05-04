@@ -1,4 +1,4 @@
-local existing = game:GetService("CoreGui"):FindFirstChild("FlyControlGui")
+local existing = game:GetService("CoreGui"):FindFirstChild("cmdbar")
 if existing then
 	existing:Destroy()
 end
