@@ -213,8 +213,8 @@ ExecuteBtn.MouseButton1Click:Connect(function()
 	local args = string.split(txt, " ")
 	local CMD = args[1]
 	local val = tonumber(args[2])
-
 	local function getHumanoid()
+                local hrp = char:WaitForChild("HumanoidRootPart")
 		local char = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
 		return char:FindFirstChildOfClass("Humanoid")
 	end
