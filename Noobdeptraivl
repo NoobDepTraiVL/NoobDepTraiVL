@@ -135,6 +135,6 @@ ExecuteBtn.MouseButton1Click:Connect(function()
 	elseif cmd == "gravity" or cmd == "gra" and val then
 		workspace.Gravity = val
 	elseif cmd == "reset" then
-		LocalPlayer:LoadCharacter()
+                char:BreakJoints() 
 	end
 end)
