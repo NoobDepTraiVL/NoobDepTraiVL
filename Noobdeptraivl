@@ -4,21 +4,25 @@ if existing then
 end
 
 local TweenService = game:GetService("TweenService")
-local ScreenGui = Instance.new("ScreenGui", game:GetService("CoreGui"))
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+local CoreGui = game:GetService("CoreGui")
+
+local ScreenGui = Instance.new("ScreenGui", CoreGui)
 ScreenGui.Name = "cmdbar"
+ScreenGui.ResetOnSpawn = false
 
 local Frame = Instance.new("Frame")
 Frame.Name = "MainFrame"
 Frame.Size = UDim2.new(0, 160, 0, 120)
 Frame.Position = UDim2.new(0.5, -80, 0.5, -60)
-Frame.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+Frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 Frame.BorderColor3 = Color3.fromRGB(20, 20, 20)
 Frame.BorderSizePixel = 2
 Frame.Active = true
 Frame.Draggable = true
 Frame.ClipsDescendants = true
 Frame.Parent = ScreenGui
-
 Instance.new("UICorner", Frame).CornerRadius = UDim.new(0, 8)
 
 local Title = Instance.new("TextLabel", Frame)
@@ -27,7 +31,7 @@ Title.Size = UDim2.new(1, 0, 0, 24)
 Title.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
 Title.BorderSizePixel = 0
 Title.Text = "CmdBar"
-Title.TextColor3 = Color3.fromRGB(200, 200, 200)
+Title.TextColor3 = Color3.fromRGB(255, 255, 255)
 Title.Font = Enum.Font.Gotham
 Title.TextSize = 12
 Instance.new("UICorner", Title).CornerRadius = UDim.new(0, 8)
@@ -48,9 +52,41 @@ closeBtn.Position = UDim2.new(1, -25, 0, 2)
 closeBtn.Text = "x"
 closeBtn.TextSize = 14
 closeBtn.Font = Enum.Font.GothamBold
-closeBtn.TextColor3 = Color3.new(255, 255, 255)
+closeBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
 closeBtn.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
 closeBtn.BorderSizePixel = 0
+
+local Input = Instance.new("TextBox", Frame)
+Input.PlaceholderText = "Type command..."
+Input.Text = ""
+Input.TextColor3 = Color3.fromRGB(255, 255, 255)
+Input.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Input.Position = UDim2.new(0, 10, 0, 35)
+Input.Size = UDim2.new(1, -20, 0, 30)
+Input.Font = Enum.Font.Gotham
+Input.TextSize = 14
+Input.ClearTextOnFocus = false
+Instance.new("UICorner", Input).CornerRadius = UDim.new(0, 6)
+
+local ClearBtn = Instance.new("TextButton", Frame)
+ClearBtn.Text = "Clear"
+ClearBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
+ClearBtn.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+ClearBtn.Position = UDim2.new(0, 10, 0, 75)
+ClearBtn.Size = UDim2.new(0.5, -15, 0, 30)
+ClearBtn.Font = Enum.Font.Gotham
+ClearBtn.TextSize = 14
+Instance.new("UICorner", ClearBtn).CornerRadius = UDim.new(0, 6)
+
+local ExecuteBtn = Instance.new("TextButton", Frame)
+ExecuteBtn.Text = "Execute"
+ExecuteBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
+ExecuteBtn.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+ExecuteBtn.Position = UDim2.new(0.5, 5, 0, 75)
+ExecuteBtn.Size = UDim2.new(0.5, -15, 0, 30)
+ExecuteBtn.Font = Enum.Font.Gotham
+ExecuteBtn.TextSize = 14
+Instance.new("UICorner", ExecuteBtn).CornerRadius = UDim.new(0, 6)
 
 local isMinimized = false
 local fullSize = Frame.Size
@@ -58,17 +94,47 @@ local minimizedSize = UDim2.new(0, 160, 0, 24)
 
 Minimize.MouseButton1Click:Connect(function()
 	isMinimized = not isMinimized
-	Minimize.Text = isMinimized and  "" or "-"
+	Minimize.Text = isMinimized and "" or "-"
 	local tweenInfo = TweenInfo.new(0.25, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
 	local tween = TweenService:Create(Frame, tweenInfo, {Size = isMinimized and minimizedSize or fullSize})
 	tween:Play()
-	ToggleButton.Visible = not isMinimized
-	SpeedSlider.Visible = not isMinimized
+
+	Input.Visible = not isMinimized
+	ClearBtn.Visible = not isMinimized
+	ExecuteBtn.Visible = not isMinimized
 end)
 
 closeBtn.MouseButton1Click:Connect(function()
 	local parentGui = closeBtn:FindFirstAncestorWhichIsA("ScreenGui")
 	if parentGui then
 		parentGui:Destroy()
+	end
+end)
+
+ClearBtn.MouseButton1Click:Connect(function()
+	Input.Text = ""
+end)
+
+ExecuteBtn.MouseButton1Click:Connect(function()
+	local txt = Input.Text
+	local args = string.split(txt, " ")
+	local cmd = args[1]
+	local val = tonumber(args[2])
+
+	local function getHumanoid()
+		local char = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
+		return char:FindFirstChildOfClass("Humanoid")
+	end
+
+	if cmd == "speed" or cmd == "ws" and val then
+		local hum = getHumanoid()
+		if hum then hum.WalkSpeed = val end
+	elseif cmd == "jumppower" or cmd == "jp" and val then
+		local hum = getHumanoid()
+		if hum then hum.JumpPower = val end
+	elseif cmd == "gravity" or cmd == "gra" and val then
+		workspace.Gravity = val
+	elseif cmd == "reset" then
+		LocalPlayer:LoadCharacter()
 	end
 end)
