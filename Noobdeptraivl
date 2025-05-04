@@ -74,6 +74,7 @@ local baseTeleports = {
 }
 
 local healPos = Vector3.new(-51.9004, 17634.498, 9048.9287)
+local original = hrp.CFrame
 
 local function getItemPos(name)
     name = name:lower()
