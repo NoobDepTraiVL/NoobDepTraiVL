@@ -3,6 +3,7 @@ if existing then
 	existing:Destroy()
 end
 
+local TweenService = game:GetService("TweenService")
 local ScreenGui = Instance.new("ScreenGui", game:GetService("CoreGui"))
 ScreenGui.Name = "cmdbar"
 
