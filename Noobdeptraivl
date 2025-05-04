@@ -231,5 +231,40 @@ ExecuteBtn.MouseButton1Click:Connect(function()
             hrp.CFrame = CFrame.new(baseTeleports[arg])
 	elseif CMD == "reset" then
                 char:BreakJoints() 
+        elseif CMD == "heal" or CMD == "h" then
+            hrp.CFrame = CFrame.new(healPos)
+            task.wait(0.01)
+            hrp.CFrame = original
 	end
 end)
+        local itemPos = getItemPos(single)
+        if itemPos then
+            hrp.CFrame = CFrame.new(itemPos)
+            task.wait(0.02)
+            if hrp and hrp.Parent then hrp.CFrame = original end
+            return
+        end
+
+        local group = getGroup(single)
+        if group then
+            for _, item in ipairs(group) do
+                local pos = getItemPos(item)
+                if pos then
+                    hrp.CFrame = CFrame.new(pos)
+                    task.wait(single:match("all") and 0.2 or 0.05)
+                end
+            end
+            if hrp and hrp.Parent then hrp.CFrame = original end
+            return
+        end
+
+        local teleSet = getSpecialTeleport(single)
+        if teleSet then
+            for _, pos in ipairs(teleSet) do
+                hrp.CFrame = CFrame.new(pos)
+                task.wait(0.01)
+            end
+            if hrp and hrp.Parent then hrp.CFrame = original end
+        end
+    end
+end
