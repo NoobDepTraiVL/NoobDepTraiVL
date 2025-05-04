@@ -8,13 +8,8 @@ local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
 local CoreGui = game:GetService("CoreGui")
 
-local locations = {
-    vip = Vector3.new(-85.9988, 17633.498, 9349.5361),
-    megavip = Vector3.new(-86.5157, 17633.498, 9215.1953),
-    ubervip = Vector3.new(-92.6957, 17633.498, 9029.0166),
     secretisland = Vector3.new(-21.2915, 0.389, -5553.3359),
     leaderboard = Vector3.new(0.433, 24.5, -216.7857)
-}
 
 local itemCommands = {
     ["vipsword"] = {aliases = {"vs"}, pos = Vector3.new(-94.8971, 17638.168, 9357.323)},
@@ -74,34 +69,6 @@ local baseTeleports = {
 }
 
 local healPos = Vector3.new(-51.9004, 17634.498, 9048.9287)
-local char = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
-local hrp = char:WaitForChild("HumanoidRootPart")
-local original = hrp.CFrame
-
-local function getItemPos(name)
-    name = name:lower()
-    for item, data in pairs(itemCommands) do
-        if name == item or table.find(data.aliases, name) then
-            return data.pos
-        end
-    end
-end
-
-local function getGroup(name)
-    name = name:lower()
-    return groupCommands[name]
-end
-
-local function getSpecialTeleport(name)
-    name = name:lower()
-    for cmd, data in pairs(specialTeleports) do
-        if type(data) == "table" and data.pos and (cmd == name or table.find(data.aliases, name)) then
-            return {data.pos}
-        elseif cmd == name then
-            return data
-        end
-    end
-end
 
 local ScreenGui = Instance.new("ScreenGui", CoreGui)
 ScreenGui.Name = "cmdbar"
@@ -225,10 +192,30 @@ ExecuteBtn.MouseButton1Click:Connect(function()
 	elseif CMD == "jumppower" or cmd == "jp" and val then
 		local hum = getHumanoid()
 		if hum then hum.JumpPower = val end
-        elseif (CMD == "teleportlocation" or CMD == "tplc") and locations[arg] then
-            hrp.CFrame = CFrame.new(locations[arg])
-        elseif (CMD == "base" or CMD == "b") and baseTeleports[arg] then
-            hrp.CFrame = CFrame.new(baseTeleports[arg])
+        elseif CMD == "teleportlocation vip" or CMD == "tplc vip" then
+            local function teleportTo(position)
+	        local char = game.Players.LocalPlayer.Character or game.Players.LocalPlayer.CharacterAdded:Wait()
+	        if char and char:FindFirstChild("HumanoidRootPart") then
+		        char.HumanoidRootPart.CFrame = CFrame.new(position)
+	        end
+        end
+            teleportTo(Vector3.new(-85.9988, 17633.498, 9349.5361))
+        elseif CMD == "teleportlocation megavip" or CMD == "tplc megavip" then
+            local function teleportTo(position)
+	        local char = game.Players.LocalPlayer.Character or game.Players.LocalPlayer.CharacterAdded:Wait()
+	        if char and char:FindFirstChild("HumanoidRootPart") then
+		        char.HumanoidRootPart.CFrame = CFrame.new(position)
+	        end
+        end
+            teleportTo(Vector3.new(-86.5157, 17633.498, 9215.1953))
+        elseif CMD == "teleportlocation ubervip" or CMD == "tplc ubervip"
+            local function teleportTo(position)
+	        local char = game.Players.LocalPlayer.Character or game.Players.LocalPlayer.CharacterAdded:Wait()
+	        if char and char:FindFirstChild("HumanoidRootPart") then
+		        char.HumanoidRootPart.CFrame = CFrame.new(position)
+	        end
+        end
+            teleportTo(Vector3.new(-92.6957, 17633.498, 9029.0166))
 	elseif CMD == "reset" then
                 char:BreakJoints() 
         elseif CMD == "heal" or CMD == "h" then
@@ -237,34 +224,3 @@ ExecuteBtn.MouseButton1Click:Connect(function()
             hrp.CFrame = original
 	end
 end)
-        local itemPos = getItemPos(single)
-        if itemPos then
-            hrp.CFrame = CFrame.new(itemPos)
-            task.wait(0.02)
-            if hrp and hrp.Parent then hrp.CFrame = original end
-            return
-        end
-
-        local group = getGroup(single)
-        if group then
-            for _, item in ipairs(group) do
-                local pos = getItemPos(item)
-                if pos then
-                    hrp.CFrame = CFrame.new(pos)
-                    task.wait(single:match("all") and 0.2 or 0.05)
-                end
-            end
-            if hrp and hrp.Parent then hrp.CFrame = original end
-            return
-        end
-
-        local teleSet = getSpecialTeleport(single)
-        if teleSet then
-            for _, pos in ipairs(teleSet) do
-                hrp.CFrame = CFrame.new(pos)
-                task.wait(0.01)
-            end
-            if hrp and hrp.Parent then hrp.CFrame = original end
-        end
-    end
-end
