@@ -75,6 +75,31 @@ local baseTeleports = {
 
 local healPos = Vector3.new(-51.9004, 17634.498, 9048.9287)
 
+local function getItemPos(name)
+    name = name:lower()
+    for item, data in pairs(itemCommands) do
+        if name == item or table.find(data.aliases, name) then
+            return data.pos
+        end
+    end
+end
+
+local function getGroup(name)
+    name = name:lower()
+    return groupCommands[name]
+end
+
+local function getSpecialTeleport(name)
+    name = name:lower()
+    for cmd, data in pairs(specialTeleports) do
+        if type(data) == "table" and data.pos and (cmd == name or table.find(data.aliases, name)) then
+            return {data.pos}
+        elseif cmd == name then
+            return data
+        end
+    end
+end
+
 local ScreenGui = Instance.new("ScreenGui", CoreGui)
 ScreenGui.Name = "cmdbar"
 ScreenGui.ResetOnSpawn = false
@@ -185,7 +210,7 @@ end)
 ExecuteBtn.MouseButton1Click:Connect(function()
 	local txt = Input.Text
 	local args = string.split(txt, " ")
-	local cmd = args[1]
+	local CMD = args[1]
 	local val = tonumber(args[2])
 
 	local function getHumanoid()
@@ -193,15 +218,15 @@ ExecuteBtn.MouseButton1Click:Connect(function()
 		return char:FindFirstChildOfClass("Humanoid")
 	end
 
-	if cmd == "speed" or cmd == "ws" and val then
+	if CMD == "speed" or cmd == "ws" and val then
 		local hum = getHumanoid()
 		if hum then hum.WalkSpeed = val end
-	elseif cmd == "jumppower" or cmd == "jp" and val then
+	elseif CMD == "jumppower" or cmd == "jp" and val then
 		local hum = getHumanoid()
 		if hum then hum.JumpPower = val end
-	elseif cmd == "gravity" or cmd == "gra" and val then
+	elseif CMD == "gravity" or cmd == "gra" and val then
 		workspace.Gravity = val
-	elseif cmd == "reset" then
+	elseif CMD == "reset" then
                 char:BreakJoints() 
 	end
 end)
