@@ -154,22 +154,22 @@ ExecuteBtn.MouseButton1Click:Connect(function()
 		if locations[target] then
 			teleportTo(locations[target])
 		end
-        elseif CMD == "base" and args[3] then
-                local target = string.lower(args[3])
-                local baseTeleports = {
-                        1 = Vector3.new(-81.99998, 24.9, -82.00003),
-                        2 = Vector3.new(-41.6357, 24.9, -81.5860),
-                        3 = Vector3.new(82.1813, 24.9, -82.8041),
-                        4 = Vector3.new(-82.2078, 24.9, -42.0434),
-                        5 = Vector3.new(42.1568, 24.9, -42.2711),
-                        6 = Vector3.new(81.8493, 24.9, -41.5240),
-                        7 = Vector3.new(81.4962, 24.9, -81.8992),
-                        8 = Vector3.new(81.9710, 24.9, -42.5737),
-                        9 = Vector3.new(81.4403, 24.9, 82.6168),
-                }
-                if baseTeleports[target] then
-                        teleportTo(baseTeleports[target])
-                end
+        elseif CMD == "base" and args[2] then
+            local target = tonumber(args[2])
+            local baseTeleports = {
+                [1] = Vector3.new(-81.99998, 24.9, -82.00003),
+                [2] = Vector3.new(-41.6357, 24.9, -81.5860),
+                [3] = Vector3.new(82.1813, 24.9, -82.8041),
+                [4] = Vector3.new(-82.2078, 24.9, -42.0434),
+                [5] = Vector3.new(42.1568, 24.9, -42.2711),
+                [6] = Vector3.new(81.8493, 24.9, -41.5240),
+                [7] = Vector3.new(81.4962, 24.9, -81.8992),
+                [8] = Vector3.new(81.9710, 24.9, -42.5737),
+                [9] = Vector3.new(81.4403, 24.9, 82.6168),
+            }
+            if baseTeleports[target] then
+                teleportTo(baseTeleports[target])
+            end
 	elseif CMD == "tplc" and args[2] then
 		local alias = string.lower(args[2])
 		local locations = {
@@ -182,22 +182,22 @@ ExecuteBtn.MouseButton1Click:Connect(function()
 		if locations[alias] then
 			teleportTo(locations[alias])
 		end
-        elseif CMD == "b" and args[3] then
-                local alias = string.lower(args[3])
-                local baseTeleports = {
-                        1 = Vector3.new(-81.99998, 24.9, -82.00003),
-                        2 = Vector3.new(-41.6357, 24.9, -81.5860),
-                        3 = Vector3.new(82.1813, 24.9, -82.8041),
-                        4 = Vector3.new(-82.2078, 24.9, -42.0434),
-                        5 = Vector3.new(42.1568, 24.9, -42.2711),
-                        6 = Vector3.new(81.8493, 24.9, -41.5240),
-                        7 = Vector3.new(81.4962, 24.9, -81.8992),
-                        8 = Vector3.new(81.9710, 24.9, -42.5737),
-                        9 = Vector3.new(81.4403, 24.9, 82.6168),
-                }
-                if baseTeleports[alias] then
-                        teleportTo(baseTeleports[alias])
-                end
+        elseif CMD == "b" and args[2] then
+            local alias = tonumber(args[2])
+            local baseTeleports = {
+                [1] = Vector3.new(-81.99998, 24.9, -82.00003),
+                [2] = Vector3.new(-41.6357, 24.9, -81.5860),
+                [3] = Vector3.new(82.1813, 24.9, -82.8041),
+                [4] = Vector3.new(-82.2078, 24.9, -42.0434),
+                [5] = Vector3.new(42.1568, 24.9, -42.2711),
+                [6] = Vector3.new(81.8493, 24.9, -41.5240),
+                [7] = Vector3.new(81.4962, 24.9, -81.8992),
+                [8] = Vector3.new(81.9710, 24.9, -42.5737),
+                [9] = Vector3.new(81.4403, 24.9, 82.6168),
+            }
+            if baseTeleports[alias] then
+                teleportTo(baseTeleports[alias])
+            end
 	elseif CMD == "reset" then
 		local char = LocalPlayer.Character
 		if char then
