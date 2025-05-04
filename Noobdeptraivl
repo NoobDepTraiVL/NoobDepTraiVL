@@ -74,6 +74,7 @@ local baseTeleports = {
 }
 
 local healPos = Vector3.new(-51.9004, 17634.498, 9048.9287)
+local char = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
 local hrp = char:WaitForChild("HumanoidRootPart")
 local original = hrp.CFrame
 
@@ -215,7 +216,6 @@ ExecuteBtn.MouseButton1Click:Connect(function()
 	local CMD = args[1]
 	local val = tonumber(args[2])
 	local function getHumanoid()
-		local char = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
 		return char:FindFirstChildOfClass("Humanoid")
 	end
 
