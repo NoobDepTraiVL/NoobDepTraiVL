@@ -8,65 +8,6 @@ local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
 local CoreGui = game:GetService("CoreGui")
 
--- [[ local itemCommands = {
-    ["vipsword"] = {aliases = {"vs"}, pos = Vector3.new(-94.8971, 17638.168, 9357.323)},
-    ["medkit5"] = {aliases = {"mk5"}, pos = Vector3.new(-106.1854, 17638.436, 9357.467)},
-    ["megavipsword"] = {aliases = {"mvs"}, pos = Vector3.new(-86.9182, 17638.006, 9224.517)},
-    ["medkit15"] = {aliases = {"mk15"}, pos = Vector3.new(-99.3904, 17638.004, 9224.454)},
-    ["doublegravitycoil"] = {aliases = {"dgc"}, pos = Vector3.new(-112.5444, 17638.002, 9224.459)},
-    ["epickatana"] = {aliases = {"ek"}, pos = Vector3.new(-80.9522, 17638.006, 9046.4268)},
-    ["fusioncoil"] = {aliases = {"fc"}, pos = Vector3.new(-95.7642, 17638.006, 9046.4746)},
-    ["medkitunlimited"] = {aliases = {"mku", "mkunlimited"}, pos = Vector3.new(-109.4542, 17638.006, 9046.5391)},
-    ["superfreezeray"] = {aliases = {"sfr", "sfray"}, pos = Vector3.new(-124.6104, 17638.004, 9046.5029)},
-} ]]
-
--- [[ local groupCommands = {
-    ["vipitems"] = {"vipsword", "medkit5"},
-    ["viptools"] = {"vipsword", "medkit5"},
-    ["vt"] = {"vipsword", "medkit5"},
-    ["vi"] = {"vipsword", "medkit5"},
-
-    ["megavipitems"] = {"megavipsword", "medkit15", "doublegravitycoil"},
-    ["megaviptools"] = {"megavipsword", "medkit15", "doublegravitycoil"},
-    ["mvi"] = {"megavipsword", "medkit15", "doublegravitycoil"},
-    ["mvt"] = {"megavipsword", "medkit15", "doublegravitycoil"},
-
-    ["ubervipitems"] = {"epickatana", "fusioncoil", "medkitunlimited", "superfreezeray"},
-    ["uberviptools"] = {"epickatana", "fusioncoil", "medkitunlimited", "superfreezeray"},
-    ["uvi"] = {"epickatana", "fusioncoil", "medkitunlimited", "superfreezeray"},
-    ["uvt"] = {"epickatana", "fusioncoil", "medkitunlimited", "superfreezeray"},
-
-    ["alltools"] = {"vipsword", "medkit5", "megavipsword", "medkit15", "doublegravitycoil", "epickatana", "fusioncoil", "medkitunlimited", "superfreezeray"},
-    ["allitems"] = {"vipsword", "medkit5", "megavipsword", "medkit15", "doublegravitycoil", "epickatana", "fusioncoil", "medkitunlimited", "superfreezeray"},
-    ["ats"] = {"vipsword", "medkit5", "megavipsword", "medkit15", "doublegravitycoil", "epickatana", "fusioncoil", "medkitunlimited", "superfreezeray"},
-    ["ais"] = {"vipsword", "medkit5", "megavipsword", "medkit15", "doublegravitycoil", "epickatana", "fusioncoil", "medkitunlimited", "superfreezeray"},
-} ]]
-
--- [[ local specialTeleports = {
-    ["knight"] = {aliases = {"kt"}, pos = Vector3.new(-84.6314, 17634.506, 9359.0166)},
-    ["overseer"] = {aliases = {"os"}, pos = Vector3.new(-76.3428, 17634.506, 9226.1631)},
-    ["korbloxgeneral"] = {aliases = {"kg", "kgl"}, pos = Vector3.new(-66.7205, 17634.506, 9047.8701)},
-    ["point"] = {
-        Vector3.new(-39.0459, 17634.498, 9048.7842),
-        Vector3.new(-56.0243, 17634.498, 9227.0635),
-        Vector3.new(-66.0520, 17634.498, 9359.6689)
-    }
-} ]]
-
--- [[ local baseTeleports = {
-    ["1"] = Vector3.new(-81.99998, 24.9, -82.00003),
-    ["2"] = Vector3.new(-41.6357, 24.9, -81.5860),
-    ["3"] = Vector3.new(82.1813, 24.9, -82.8041),
-    ["4"] = Vector3.new(-82.2078, 24.9, -42.0434),
-    ["5"] = Vector3.new(42.1568, 24.9, -42.2711),
-    ["6"] = Vector3.new(81.8493, 24.9, -41.5240),
-    ["7"] = Vector3.new(81.4962, 24.9, -81.8992),
-    ["8"] = Vector3.new(81.9710, 24.9, -42.5737),
-    ["9"] = Vector3.new(81.4403, 24.9, 82.6168),
-} ]]
-
--- [[ local healPos = Vector3.new(-51.9004, 17634.498, 9048.9287)
-]]
 local ScreenGui = Instance.new("ScreenGui", CoreGui)
 ScreenGui.Name = "cmdbar"
 ScreenGui.ResetOnSpawn = false
@@ -191,44 +132,44 @@ ExecuteBtn.MouseButton1Click:Connect(function()
 		local hum = getHumanoid()
 		if hum then hum.JumpPower = val end
         elseif CMD == "teleportlocation vip" or CMD == "tplc vip" then
-            local function teleportTo(position)
-	        local char = game.Players.LocalPlayer.Character or game.Players.LocalPlayer.CharacterAdded:Wait()
-	        if char and char:FindFirstChild("HumanoidRootPart") then
-		        char.HumanoidRootPart.CFrame = CFrame.new(position)
-	        end
-        end
-            teleportTo(Vector3.new(-85.9988, 17633.498, 9349.5361))
+                local function teleportTo(position)
+	            local char = game.Players.LocalPlayer.Character or game.Players.LocalPlayer.CharacterAdded:Wait()
+	            if char and char:FindFirstChild("HumanoidRootPart") then
+		            char.HumanoidRootPart.CFrame = CFrame.new(position)
+	            end
+            end
+                teleportTo(Vector3.new(-85.9988, 17633.498, 9349.5361))
         elseif CMD == "teleportlocation megavip" or CMD == "tplc megavip" then
-            local function teleportTo(position)
-	        local char = game.Players.LocalPlayer.Character or game.Players.LocalPlayer.CharacterAdded:Wait()
-	        if char and char:FindFirstChild("HumanoidRootPart") then
-		        char.HumanoidRootPart.CFrame = CFrame.new(position)
-	        end
-        end
-            teleportTo(Vector3.new(-86.5157, 17633.498, 9215.1953))
+                local function teleportTo(position)
+	            local char = game.Players.LocalPlayer.Character or game.Players.LocalPlayer.CharacterAdded:Wait()
+	            if char and char:FindFirstChild("HumanoidRootPart") then
+		            char.HumanoidRootPart.CFrame = CFrame.new(position)
+	            end
+            end
+                teleportTo(Vector3.new(-86.5157, 17633.498, 9215.1953))
         elseif CMD == "teleportlocation ubervip" or CMD == "tplc ubervip"
-            local function teleportTo(position)
-	        local char = game.Players.LocalPlayer.Character or game.Players.LocalPlayer.CharacterAdded:Wait()
-	        if char and char:FindFirstChild("HumanoidRootPart") then
-		        char.HumanoidRootPart.CFrame = CFrame.new(position)
-	        end
-        end
-            teleportTo(Vector3.new(-92.6957, 17633.498, 9029.0166))
+                local function teleportTo(position)
+	            local char = game.Players.LocalPlayer.Character or game.Players.LocalPlayer.CharacterAdded:Wait()
+	            if char and char:FindFirstChild("HumanoidRootPart") then
+		            char.HumanoidRootPart.CFrame = CFrame.new(position)
+	            end
+            end
+                teleportTo(Vector3.new(-92.6957, 17633.498, 9029.0166))
         elseif CMD == "teleportlocation secretisland" or CMD == "tplc secretisland" then
-            local function teleportTo(position)
-	        local char = game.Players.LocalPlayer.Character or game.Players.LocalPlayer.CharacterAdded:Wait()
-	        if char and char:FindFirstChild("HumanoidRootPart") then
-		        char.HumanoidRootPart.CFrame = CFrame.new(position)
-	        end
-        end
-            teleportTo(Vector3.new(-21.2915, 0.389, -5553.3359))
+                local function teleportTo(position)
+	            local char = game.Players.LocalPlayer.Character or game.Players.LocalPlayer.CharacterAdded:Wait()
+	            if char and char:FindFirstChild("HumanoidRootPart") then
+		            char.HumanoidRootPart.CFrame = CFrame.new(position)
+	            end
+            end
+                teleportTo(Vector3.new(-21.2915, 0.389, -5553.3359))
         elseif CMD == "teleportlocation leaderboard" or CMD "tplc leaderboard" then
-            local function teleportTo(position)
-	        local char = game.Players.LocalPlayer.Character or game.Players.LocalPlayer.CharacterAdded:Wait()
-	        if char and char:FindFirstChild("HumanoidRootPart") then
-		        char.HumanoidRootPart.CFrame = CFrame.new(position)
-	        end
-        end
-            teleportTo(Vector3.new(0.433, 24.5, -216.7857))
+                local function teleportTo(position)
+	            local char = game.Players.LocalPlayer.Character or game.Players.LocalPlayer.CharacterAdded:Wait()
+	            if char and char:FindFirstChild("HumanoidRootPart") then
+		            char.HumanoidRootPart.CFrame = CFrame.new(position)
+	            end
+            end
+                teleportTo(Vector3.new(0.433, 24.5, -216.7857))
 	elseif CMD == "reset" then
-            char:BreakJoints()
+                char:BreakJoints()
